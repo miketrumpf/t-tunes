@@ -1,0 +1,6 @@
+framework module Pods_TTunes {
+  umbrella header "Pods-TTunes-umbrella.h"
+
+  export *
+  module * { export * }
+}
