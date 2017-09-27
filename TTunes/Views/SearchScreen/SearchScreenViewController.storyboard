@@ -29,7 +29,7 @@
                                 <rect key="frame" x="0.0" y="267" width="375" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0xk-78-1pX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0xk-78-1pX" userLabel="ResultsTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0xk-78-1pX" id="PRy-10-rYa">
@@ -48,7 +48,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Artist Or Song" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ahi-vc-x8B">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Artist Or Song" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ahi-vc-x8B">
                                         <rect key="frame" x="0.0" y="58.5" width="281.5" height="43"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -60,6 +60,9 @@
                                         <state key="normal" title="Search">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="searchButtonPressed:" destination="WV5-Jm-bz4" eventType="touchUpInside" id="7W4-Y0-wYk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -84,6 +87,7 @@
                         <viewLayoutGuide key="safeArea" id="6Cg-Zp-3ZR"/>
                     </view>
                     <connections>
+                        <outlet property="resultsTableView" destination="L9o-Kw-V4r" id="WiX-um-Wuc"/>
                         <outlet property="searchButton" destination="wsB-p8-7R7" id="46X-cJ-AF4"/>
                         <outlet property="searchTextField" destination="ahi-vc-x8B" id="XnH-t5-oGs"/>
                     </connections>

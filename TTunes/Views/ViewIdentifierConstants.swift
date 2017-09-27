@@ -22,11 +22,12 @@ struct StoryboardInstanceConstants {
 }
 
 struct NibInstanceConstants {
-  //  static let favoriteCell = UINib.init(nibName: "FavoritesTableViewCell", bundle: nil)
-  
+  static let resultCell = UINib.init(nibName: "ResultsTableViewCell", bundle: nil)
+
 }
 
 struct XibNameConstants {
   //  static let favoriteCell = "FavoritesTableViewCell"
-  
+  static let resultCell = "ResultsTableViewCell"
+
 }

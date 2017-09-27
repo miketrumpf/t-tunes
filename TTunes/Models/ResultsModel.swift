@@ -11,11 +11,10 @@ import UIKit
 struct ResultConstants {
   static let resultId = "id"
   static let artist = "artist"
-  static let song = "song"
-
-  
-  //  static let timesShared = "times_shared"
-  
+  static let track = "track"
+  static let album = "album"
+//  static let image = "image"
+//  static let imageUrl = "imageUrl"
   
   
 }
@@ -24,9 +23,10 @@ class ResultModel: ContentItemModel, NSCoding {
   
   var resultId: String
   var artist: String
-  var song: String
-  
-  
+  var track: String
+  var album: String
+//  var image: UIImage?
+//  var imageUrl: URL?
   
   
   
@@ -43,12 +43,17 @@ class ResultModel: ContentItemModel, NSCoding {
     artist = artistName
     
     
-    guard let songName = dictionary[ResultConstants.song] as? String else {
+    guard let trackName = dictionary[ResultConstants.track] as? String else {
       return nil
     }
     
-    song = songName
+    track = trackName
     
+    guard let albumName = dictionary[ResultConstants.album] as? String else {
+      return nil
+    }
+    
+    album = albumName
     super.init(dictionary: dictionary)
   }
   
@@ -56,7 +61,8 @@ class ResultModel: ContentItemModel, NSCoding {
   func encode(with aCoder: NSCoder) {
     aCoder.encode(resultId, forKey: ResultConstants.resultId)
     aCoder.encode(artist, forKey: ResultConstants.artist)
-    aCoder.encode(song, forKey: ResultConstants.song)
+    aCoder.encode(track, forKey: ResultConstants.track)
+    aCoder.encode(album, forKey: ResultConstants.album)
 
     
     super.encodeWithEncoder(aCoder)
@@ -73,11 +79,17 @@ class ResultModel: ContentItemModel, NSCoding {
     }
     artist = artistName
     
-    guard let songName = aDecoder.decodeObject(forKey: ResultConstants.song) as? String else {
+    guard let trackName = aDecoder.decodeObject(forKey: ResultConstants.track) as? String else {
       return nil
     }
     
-    song = songName
+    track = trackName
+    
+    guard let albumName = aDecoder.decodeObject(forKey: ResultConstants.album) as? String else {
+      return nil
+    }
+    
+    album = albumName
 
 
     

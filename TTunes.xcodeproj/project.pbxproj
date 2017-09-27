@@ -18,6 +18,8 @@
 		27A1AB9B1F7C1700003EF48D /* SearchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A1AB9A1F7C1700003EF48D /* SearchScreenViewController.swift */; };
 		27A1AB9D1F7C1713003EF48D /* SearchScreenViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27A1AB9C1F7C1713003EF48D /* SearchScreenViewController.storyboard */; };
 		27A1ABA11F7C191F003EF48D /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A1ABA01F7C191F003EF48D /* SearchViewModel.swift */; };
+		27A1ABA61F7C2F13003EF48D /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A1ABA41F7C2F13003EF48D /* ResultsTableViewCell.swift */; };
+		27A1ABA71F7C2F13003EF48D /* ResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A1ABA51F7C2F13003EF48D /* ResultsTableViewCell.xib */; };
 		27E702551F7B24EC00C2F24B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E702541F7B24EC00C2F24B /* AppDelegate.swift */; };
 		27E7025C1F7B24EC00C2F24B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27E7025B1F7B24EC00C2F24B /* Assets.xcassets */; };
 		27E7025F1F7B24EC00C2F24B /* LaunchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E7025D1F7B24EC00C2F24B /* LaunchViewController.storyboard */; };
@@ -37,6 +39,8 @@
 		27A1AB9A1F7C1700003EF48D /* SearchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewController.swift; sourceTree = "<group>"; };
 		27A1AB9C1F7C1713003EF48D /* SearchScreenViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchScreenViewController.storyboard; sourceTree = "<group>"; };
 		27A1ABA01F7C191F003EF48D /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		27A1ABA41F7C2F13003EF48D /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
+		27A1ABA51F7C2F13003EF48D /* ResultsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsTableViewCell.xib; sourceTree = "<group>"; };
 		27E702511F7B24EC00C2F24B /* TTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E702541F7B24EC00C2F24B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27E7025B1F7B24EC00C2F24B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 			children = (
 				27A1AB9A1F7C1700003EF48D /* SearchScreenViewController.swift */,
 				27A1AB9C1F7C1713003EF48D /* SearchScreenViewController.storyboard */,
+				27A1ABA41F7C2F13003EF48D /* ResultsTableViewCell.swift */,
+				27A1ABA51F7C2F13003EF48D /* ResultsTableViewCell.xib */,
 			);
 			path = SearchScreen;
 			sourceTree = "<group>";
@@ -244,6 +250,7 @@
 				27E7025F1F7B24EC00C2F24B /* LaunchViewController.storyboard in Resources */,
 				27E7025C1F7B24EC00C2F24B /* Assets.xcassets in Resources */,
 				27A1AB9D1F7C1713003EF48D /* SearchScreenViewController.storyboard in Resources */,
+				27A1ABA71F7C2F13003EF48D /* ResultsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +316,7 @@
 				27A1AB8A1F7C0864003EF48D /* SearchAPIManager.swift in Sources */,
 				27A1AB8E1F7C0B37003EF48D /* ContentItemModel.swift in Sources */,
 				27A1AB921F7C0D50003EF48D /* LyricsModel.swift in Sources */,
+				27A1ABA61F7C2F13003EF48D /* ResultsTableViewCell.swift in Sources */,
 				27A1AB881F7BE322003EF48D /* TunesApiConstants.swift in Sources */,
 				27A1AB901F7C0C40003EF48D /* ResultsModel.swift in Sources */,
 				27A1AB991F7C1628003EF48D /* LaunchViewController.swift in Sources */,
