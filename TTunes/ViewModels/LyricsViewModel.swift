@@ -11,6 +11,7 @@ import UIKit
 
 protocol LyricsViewModelDelegate: class {
   func lyricsDidLoad()
+  func throwError()
 
 }
 class LyricsViewModel: NSObject {
@@ -18,14 +19,17 @@ class LyricsViewModel: NSObject {
   weak var delegate: LyricsViewModelDelegate?
   
   
-  //fetch Results based on search term. //will need to pass params
+  //fetch Results based on search term/s.
   func fetchLyrics(song: String, artist: String) {
     LyricsContentManager.fetchLyrics(song: song, artist: artist){ [weak self] (lyrics) in
       
-      guard lyrics != nil else {
+      //will be an empty string if there was an issue with parsing the json response string
+      guard lyrics != "" else {
         //call delegate for no results
+        self?.delegate?.throwError()
         return
       }
+      
       //unwrap these
       self?.lyrics = lyrics!
       self?.delegate?.lyricsDidLoad()

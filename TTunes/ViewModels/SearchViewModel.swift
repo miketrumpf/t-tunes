@@ -11,9 +11,8 @@ import UIKit
 
 protocol SearchViewModelDelegate: class {
   func resultsDidLoad()
-//  func noPosts()
+  func throwError()
   func imagesDidLoad()
-//  func htmlDidLoad()
 }
 class SearchViewModel: NSObject {
   var resultsArray = [ResultModel]()
@@ -27,6 +26,7 @@ class SearchViewModel: NSObject {
       
       guard resultArray != nil else {
         //call delegate for no results
+        self?.delegate?.throwError()
         return
       }
       //unwrap these

@@ -52,6 +52,12 @@ class LyricsScreenViewController: UIViewController, LyricsViewModelDelegate {
     albumLabel.text = albumName
   }
   
+  func throwError() {
+    let alertController = UIAlertController(title: "Error", message: "Error accessing Lyrics for this song", preferredStyle: .alert)
+    let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+    alertController.addAction(okayAction)
+    present(alertController, animated: true, completion: nil)
+  }
 
   
   @IBAction func backButtonPressed(_ sender: Any) {

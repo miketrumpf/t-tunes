@@ -18,14 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvU-ED-Xe0" userLabel="BackButton">
-                                <rect key="frame" x="20" y="30" width="44" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="BJb-w6-5gU" eventType="touchUpInside" id="JSC-bR-DCE"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEl-ZL-8i3" userLabel="LyricLabel">
+                                <rect key="frame" x="0.0" y="247.5" width="375" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="Agl-W2-3p6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="W0F-By-QLa">
                                 <rect key="frame" x="0.0" y="45" width="375" height="197.5"/>
                                 <subviews>
@@ -56,27 +57,27 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvU-ED-Xe0" userLabel="BackButton">
+                                <rect key="frame" x="20" y="40" width="50" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="BJb-w6-5gU" eventType="touchUpInside" id="JSC-bR-DCE"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YP4-hq-ea9">
                                 <rect key="frame" x="133" y="617" width="108" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Go To Itunes"/>
                                 <connections>
                                     <action selector="visitSongPage:" destination="BJb-w6-5gU" eventType="touchUpInside" id="2D1-8w-aws"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEl-ZL-8i3" userLabel="LyricLabel">
-                                <rect key="frame" x="0.0" y="247.5" width="375" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="Agl-W2-3p6"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.077701949239999998" green="0.1019689798" blue="0.2508007813" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="BvU-ED-Xe0" firstAttribute="top" secondItem="CK5-O5-lrN" secondAttribute="top" constant="10" id="5zq-bt-PJG"/>
+                            <constraint firstItem="BvU-ED-Xe0" firstAttribute="top" secondItem="CK5-O5-lrN" secondAttribute="top" constant="20" id="5zq-bt-PJG"/>
                             <constraint firstItem="W0F-By-QLa" firstAttribute="centerX" secondItem="ce9-1F-QJB" secondAttribute="centerX" id="9T2-EA-6GI"/>
                             <constraint firstItem="BvU-ED-Xe0" firstAttribute="leading" secondItem="CK5-O5-lrN" secondAttribute="leading" constant="20" id="D3j-LK-GSE"/>
                             <constraint firstItem="nEl-ZL-8i3" firstAttribute="top" secondItem="W0F-By-QLa" secondAttribute="bottom" constant="5" id="FSd-kw-Mqm"/>

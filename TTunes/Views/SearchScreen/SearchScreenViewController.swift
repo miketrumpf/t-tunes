@@ -36,13 +36,15 @@ class SearchScreenViewController: UIViewController, SearchViewModelDelegate, UIT
     //check for empty search box
     //need a loader
     
-    if let searchParams = self.searchTextField.text {
-      //if params
-      searchViewModel.fetchResults(searchParams: searchParams)
-    } else {
-      //error message?
-      print("empty params")
+    guard let searchParams = self.searchTextField.text, !searchParams.isEmpty else {
+      let alertController = UIAlertController(title: "Error", message: "Please enter a search term", preferredStyle: .alert)
+      let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+      alertController.addAction(okayAction)
+      present(alertController, animated: true, completion: nil)
+      return
     }
+    
+    searchViewModel.fetchResults(searchParams: searchParams)
     
 
   }
@@ -55,6 +57,13 @@ class SearchScreenViewController: UIViewController, SearchViewModelDelegate, UIT
   func imagesDidLoad() {
     setUpCustomTableViewCells()
 
+  }
+  
+  func throwError() {
+    let alertController = UIAlertController(title: "Error", message: "Something Went wrong.", preferredStyle: .alert)
+    let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+    alertController.addAction(okayAction)
+    present(alertController, animated: true, completion: nil)
   }
 
   

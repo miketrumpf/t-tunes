@@ -9,10 +9,6 @@ import Foundation
 import Alamofire
 
 
-struct SearchAPIConstants {
-  //  static let posts = "posts"
-}
-
 class SearchAPIManager: NSObject {
   //
   //
@@ -55,7 +51,7 @@ class SearchAPIManager: NSObject {
 
   
       //    URLCache.shared.removeAllCachedResponses()
-  
+      MainCacheManager.clearAllCachedResults()
       Alamofire.request(url, encoding: URLEncoding.default).responseJSON { response in
         guard let imageData = response.data else {
           comp(nil)

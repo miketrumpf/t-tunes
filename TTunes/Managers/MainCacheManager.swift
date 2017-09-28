@@ -92,60 +92,35 @@ class MainCacheManager : NSObject {
   }
   
   //access item type directory, add each item in
-//  static func fetchCachedPosts(_ itemType: ItemCacheType) -> [PostModel] {
-//    var postsArray = [PostModel]()
-//    let postDirectory = MainCacheManager.cacheLocationForItemType(itemType)
-//    let fileManager = FileManager.default
-//    if let subPaths = fileManager.subpaths(atPath: postDirectory) {
-//      for path in subPaths {
-//        if path != ".DS_Store" {
-//          let cachedPostPath = (postDirectory as NSString).appendingPathComponent(path)
-//          let item = NSKeyedUnarchiver.unarchiveObject(withFile: cachedPostPath)
-//          if let cachedPost = item as? PostModel {
-//            postsArray.append(cachedPost)
-//          }
-//        }
-//      }
-//    }
-//    return postsArray
-//  }
+  static func fetchCachedResults(_ itemType: ItemCacheType) -> [ResultModel] {
+    var resultsArray = [ResultModel]()
+    let resultDirectory = MainCacheManager.cacheLocationForItemType(itemType)
+    let fileManager = FileManager.default
+    if let subPaths = fileManager.subpaths(atPath: resultDirectory) {
+      for path in subPaths {
+        if path != ".DS_Store" {
+          let cachedResultPath = (resultDirectory as NSString).appendingPathComponent(path)
+          let item = NSKeyedUnarchiver.unarchiveObject(withFile: cachedResultPath)
+          if let cachedResult = item as? ResultModel {
+            resultsArray.append(cachedResult)
+          }
+        }
+      }
+    }
+    return resultsArray
+  }
   
   
-//  static func fetchCachedLyric(_ itemType: ItemCacheType) -> GratificationModel? {
-//    let gratificationDirectory = MainCacheManager.cacheLocationForItemType(ItemCacheType.gratificationHomePage)
-//    let fileManager = FileManager.default
-//    var gratificationModel: GratificationModel?
-//
-//    if let subPaths = fileManager.subpaths(atPath: gratificationDirectory) {
-//      for path in subPaths {
-//        if path != ".DS_Store" {
-//          let cachedGratificationPath = (gratificationDirectory as NSString).appendingPathComponent(path)
-//          let item = NSKeyedUnarchiver.unarchiveObject(withFile: cachedGratificationPath)
-//          if let cachedGratification = item as? GratificationModel {
-//            gratificationModel = cachedGratification
-//          }
-//        }
-//      }
-//    }
-//
-//    return gratificationModel
-//  }
-  
+
   static func clearAllCachedResults() {
-//    let cachedPostsArray = MainCacheManager.fetchCachedPosts(ItemCacheType.postHomePage)
-//    for post in cachedPostsArray {
-//      let filePath = MainCacheManager.cacheLocationForObject(post, itemType: ItemCacheType.postHomePage)
-//      MainCacheManager.clearCacheForObject(filePath)
-//    }
+    let cachedResultsArray = MainCacheManager.fetchCachedResults(ItemCacheType.result)
+    for result in cachedResultsArray {
+      let filePath = MainCacheManager.cacheLocationForObject(result, itemType: ItemCacheType.result)
+      MainCacheManager.clearCacheForObject(filePath)
+    }
   }
   
-  static func clearAllCachedLyrics() {
-//    if let cachedGratification = MainCacheManager.fetchCachedGratification(ItemCacheType.gratificationHomePage) {
-//      let filePath = MainCacheManager.cacheLocationForObject(cachedGratification, itemType: ItemCacheType.gratificationHomePage)
-//      MainCacheManager.clearCacheForObject(filePath)
-//    }
-    
-  }
+
   
   
   
