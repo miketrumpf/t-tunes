@@ -16,8 +16,8 @@ struct VCNameConstants {
 
 struct StoryboardInstanceConstants {
   static let launch = UIStoryboard(name: "LaunchViewController", bundle: nil)
-  static let searchView = UIStoryboard(name: "SearchViewController", bundle: nil)
-  static let lyricsScreen = UIStoryboard(name: "LyricsViewController", bundle: nil)
+  static let searchView = UIStoryboard(name: "SearchScreenViewController", bundle: nil)
+  static let lyricsScreen = UIStoryboard(name: "LyricsScreenViewController", bundle: nil)
   
 }
 

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2725DCDF1F7D2C2D0041596B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2725DCDE1F7D2C2D0041596B /* StringExtensions.swift */; };
+		275A97921F7C8B54004B228E /* LyricsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275A97911F7C8B54004B228E /* LyricsScreenViewController.swift */; };
+		275A97951F7C8B96004B228E /* LyricsScreenViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275A97941F7C8B96004B228E /* LyricsScreenViewController.storyboard */; };
+		275A97971F7C8CBE004B228E /* LyricsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275A97961F7C8CBE004B228E /* LyricsViewModel.swift */; };
+		275A97991F7C8D90004B228E /* LyricsContentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275A97981F7C8D90004B228E /* LyricsContentManager.swift */; };
 		27A1AB881F7BE322003EF48D /* TunesApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A1AB871F7BE322003EF48D /* TunesApiConstants.swift */; };
 		27A1AB8A1F7C0864003EF48D /* SearchAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A1AB891F7C0864003EF48D /* SearchAPIManager.swift */; };
 		27A1AB8C1F7C0898003EF48D /* LyricsApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A1AB8B1F7C0898003EF48D /* LyricsApiManager.swift */; };
@@ -30,6 +35,11 @@
 
 /* Begin PBXFileReference section */
 		0AD34197EE9BBD1118B1E31D /* Pods-TTunes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTunes.release.xcconfig"; path = "Pods/Target Support Files/Pods-TTunes/Pods-TTunes.release.xcconfig"; sourceTree = "<group>"; };
+		2725DCDE1F7D2C2D0041596B /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		275A97911F7C8B54004B228E /* LyricsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsScreenViewController.swift; sourceTree = "<group>"; };
+		275A97941F7C8B96004B228E /* LyricsScreenViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LyricsScreenViewController.storyboard; sourceTree = "<group>"; };
+		275A97961F7C8CBE004B228E /* LyricsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsViewModel.swift; sourceTree = "<group>"; };
+		275A97981F7C8D90004B228E /* LyricsContentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsContentManager.swift; sourceTree = "<group>"; };
 		27A1AB871F7BE322003EF48D /* TunesApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunesApiConstants.swift; sourceTree = "<group>"; };
 		27A1AB891F7C0864003EF48D /* SearchAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIManager.swift; sourceTree = "<group>"; };
 		27A1AB8B1F7C0898003EF48D /* LyricsApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsApiManager.swift; sourceTree = "<group>"; };
@@ -66,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2725DCDD1F7D2C180041596B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2725DCDE1F7D2C2D0041596B /* StringExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		27A1AB821F7BE2D9003EF48D /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +120,7 @@
 			children = (
 				27A1ABA81F7C4049003EF48D /* MainCacheManager.swift */,
 				27A1ABAA1F7C4058003EF48D /* SearchContentManager.swift */,
+				275A97981F7C8D90004B228E /* LyricsContentManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -110,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				27A1ABA01F7C191F003EF48D /* SearchViewModel.swift */,
+				275A97961F7C8CBE004B228E /* LyricsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -128,6 +148,8 @@
 		27A1AB941F7C0FE4003EF48D /* LyricsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				275A97911F7C8B54004B228E /* LyricsScreenViewController.swift */,
+				275A97941F7C8B96004B228E /* LyricsScreenViewController.storyboard */,
 			);
 			path = LyricsScreen;
 			sourceTree = "<group>";
@@ -162,6 +184,7 @@
 		27E702531F7B24EC00C2F24B /* TTunes */ = {
 			isa = PBXGroup;
 			children = (
+				2725DCDD1F7D2C180041596B /* Extensions */,
 				27A1AB861F7BE2F9003EF48D /* ViewModels */,
 				27A1AB851F7BE2F2003EF48D /* Managers */,
 				27A1AB841F7BE2EB003EF48D /* Views */,
@@ -253,6 +276,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				275A97951F7C8B96004B228E /* LyricsScreenViewController.storyboard in Resources */,
 				27E7025F1F7B24EC00C2F24B /* LaunchViewController.storyboard in Resources */,
 				27E7025C1F7B24EC00C2F24B /* Assets.xcassets in Resources */,
 				27A1AB9D1F7C1713003EF48D /* SearchScreenViewController.storyboard in Resources */,
@@ -315,7 +339,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				275A97921F7C8B54004B228E /* LyricsScreenViewController.swift in Sources */,
 				27A1ABA11F7C191F003EF48D /* SearchViewModel.swift in Sources */,
+				275A97971F7C8CBE004B228E /* LyricsViewModel.swift in Sources */,
 				27A1AB8C1F7C0898003EF48D /* LyricsApiManager.swift in Sources */,
 				27A1AB971F7C1022003EF48D /* ViewIdentifierConstants.swift in Sources */,
 				27A1AB9B1F7C1700003EF48D /* SearchScreenViewController.swift in Sources */,
@@ -325,6 +351,8 @@
 				27A1AB921F7C0D50003EF48D /* LyricsModel.swift in Sources */,
 				27A1ABA61F7C2F13003EF48D /* ResultsTableViewCell.swift in Sources */,
 				27A1AB881F7BE322003EF48D /* TunesApiConstants.swift in Sources */,
+				2725DCDF1F7D2C2D0041596B /* StringExtensions.swift in Sources */,
+				275A97991F7C8D90004B228E /* LyricsContentManager.swift in Sources */,
 				27A1AB901F7C0C40003EF48D /* ResultsModel.swift in Sources */,
 				27A1ABAB1F7C4058003EF48D /* SearchContentManager.swift in Sources */,
 				27A1AB991F7C1628003EF48D /* LaunchViewController.swift in Sources */,

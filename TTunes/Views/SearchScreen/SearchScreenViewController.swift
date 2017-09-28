@@ -77,23 +77,6 @@ class SearchScreenViewController: UIViewController, SearchViewModelDelegate, UIT
     if currentResult.image != nil {
       cell.albumImage.image = currentResult.image!
     }
-//    cell.albumImage.image = currentResult.image
-    //each cell will pull from array of results
-//    DispatchQueue.main.async {
-//      //cell.userProfileImageview.layoutIfNeeded()
-//      cell.userProfileImageview.clipsToBounds = true
-//      cell.userProfileImageview.layer.cornerRadius = cell.userProfileImageview.frame.height / 2
-//    }
-//    if challengeViewModel.challengeType == .pending {
-//      if challengeViewModel.gameChallengesPendingArray.count > 0 {
-//        updateCellInfo(cell, indexPath, challengeArray: challengeViewModel.gameChallengesPendingArray)
-//      }
-//    } else {
-//      if challengeViewModel.gameChallengesPreviousArray.count > 0 {
-//        updateCellInfo(cell, indexPath, challengeArray: challengeViewModel.gameChallengesPreviousArray)
-//      }
-//    }
-//
     return cell
   }
 
@@ -111,13 +94,19 @@ class SearchScreenViewController: UIViewController, SearchViewModelDelegate, UIT
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    if challengeViewModel.challengeType == .pending {
-//      timer?.invalidate()
-//      challengeViewModel.challengeIndex = indexPath.row
-//      updatePendingGameView(forRow: indexPath.row, self)
-//    }
+    let selection = self.searchViewModel.resultsArray[indexPath.row]
+    navigateToLyricsScreen(song: selection.track, artist: selection.artist)
+
+    
   }
   
+  func navigateToLyricsScreen(song: String, artist: String) {
+    let lyricsScreenStoryboard = StoryboardInstanceConstants.lyricsScreen
+    let lyricsScreenViewController = lyricsScreenStoryboard.instantiateViewController(withIdentifier: VCNameConstants.lyrics) as! LyricsScreenViewController
+    lyricsScreenViewController.artistName = artist
+    lyricsScreenViewController.songName = song
+    present(lyricsScreenViewController, animated: true, completion: nil)
+  }
   
   
 }
