@@ -18,10 +18,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvU-ED-Xe0" userLabel="BackButton">
+                                <rect key="frame" x="10" y="20" width="38" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="BJb-w6-5gU" eventType="touchUpInside" id="JSC-bR-DCE"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="W0F-By-QLa">
+                                <rect key="frame" x="0.0" y="45" width="375" height="197.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noAlbumArt" translatesAutoresizingMaskIntoConstraints="NO" id="XSu-0p-bhy" userLabel="AlbumImage">
+                                        <rect key="frame" x="137.5" y="0.0" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="Z40-Tw-SyE"/>
+                                            <constraint firstAttribute="height" constant="100" id="n6B-TS-cH6"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aw1-Qu-iMC" userLabel="ArtistName">
+                                        <rect key="frame" x="167" y="112" width="41.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKp-VS-hDf" userLabel="AlbumName">
+                                        <rect key="frame" x="163" y="144.5" width="49" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Liv-Mr-xN3" userLabel="TrackName">
+                                        <rect key="frame" x="166.5" y="177" width="42.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YP4-hq-ea9">
+                                <rect key="frame" x="133" y="617" width="108" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Go To Itunes"/>
+                                <connections>
+                                    <action selector="visitSongPage:" destination="BJb-w6-5gU" eventType="touchUpInside" id="2D1-8w-aws"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEl-ZL-8i3" userLabel="LyricLabel">
-                                <rect key="frame" x="0.0" y="133.5" width="375" height="400"/>
+                                <rect key="frame" x="0.0" y="247.5" width="375" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="Agl-W2-3p6"/>
+                                    <constraint firstAttribute="height" constant="300" id="Agl-W2-3p6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -30,20 +76,32 @@
                         </subviews>
                         <color key="backgroundColor" red="0.077701949239999998" green="0.1019689798" blue="0.2508007813" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="BvU-ED-Xe0" firstAttribute="top" secondItem="CK5-O5-lrN" secondAttribute="top" id="5zq-bt-PJG"/>
+                            <constraint firstItem="W0F-By-QLa" firstAttribute="centerX" secondItem="ce9-1F-QJB" secondAttribute="centerX" id="9T2-EA-6GI"/>
+                            <constraint firstItem="BvU-ED-Xe0" firstAttribute="leading" secondItem="CK5-O5-lrN" secondAttribute="leading" constant="10" id="D3j-LK-GSE"/>
+                            <constraint firstItem="nEl-ZL-8i3" firstAttribute="top" secondItem="W0F-By-QLa" secondAttribute="bottom" constant="5" id="FSd-kw-Mqm"/>
                             <constraint firstItem="nEl-ZL-8i3" firstAttribute="centerX" secondItem="ce9-1F-QJB" secondAttribute="centerX" id="HdN-8J-seq"/>
-                            <constraint firstItem="nEl-ZL-8i3" firstAttribute="centerY" secondItem="ce9-1F-QJB" secondAttribute="centerY" id="eCq-eM-5W5"/>
+                            <constraint firstItem="W0F-By-QLa" firstAttribute="top" secondItem="CK5-O5-lrN" secondAttribute="top" constant="25" id="OZm-2i-9HL"/>
+                            <constraint firstItem="W0F-By-QLa" firstAttribute="width" secondItem="ce9-1F-QJB" secondAttribute="width" id="bAo-kt-iqz"/>
                             <constraint firstItem="nEl-ZL-8i3" firstAttribute="leading" secondItem="CK5-O5-lrN" secondAttribute="leading" id="gRo-dt-a3x"/>
                             <constraint firstItem="CK5-O5-lrN" firstAttribute="trailing" secondItem="nEl-ZL-8i3" secondAttribute="trailing" id="lm7-eU-02e"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CK5-O5-lrN"/>
                     </view>
                     <connections>
+                        <outlet property="albumLabel" destination="AKp-VS-hDf" id="4R5-3A-GFo"/>
+                        <outlet property="artistLabel" destination="Aw1-Qu-iMC" id="yu6-KS-bd6"/>
+                        <outlet property="image" destination="XSu-0p-bhy" id="Ac5-We-ix1"/>
                         <outlet property="lyricLabel" destination="nEl-ZL-8i3" id="VTC-HX-zFB"/>
+                        <outlet property="trackLabel" destination="Liv-Mr-xN3" id="vlk-v3-LQL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ss6-2g-OMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="113" y="101"/>
+            <point key="canvasLocation" x="112.8" y="100.29985007496252"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="noAlbumArt" width="600" height="600"/>
+    </resources>
 </document>

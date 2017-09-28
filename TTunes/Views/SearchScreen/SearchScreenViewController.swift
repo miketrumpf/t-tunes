@@ -49,6 +49,7 @@ class SearchScreenViewController: UIViewController, SearchViewModelDelegate, UIT
   func resultsDidLoad() {
     //put this in delegate function once results come in
     searchViewModel.getResultsImages()
+    self.view.endEditing(true)
   }
 
   func imagesDidLoad() {
@@ -95,16 +96,18 @@ class SearchScreenViewController: UIViewController, SearchViewModelDelegate, UIT
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let selection = self.searchViewModel.resultsArray[indexPath.row]
-    navigateToLyricsScreen(song: selection.track, artist: selection.artist)
+    navigateToLyricsScreen(song: selection.track, artist: selection.artist, image: selection.image!, url: selection.trackViewUrl)
 
     
   }
   
-  func navigateToLyricsScreen(song: String, artist: String) {
+  func navigateToLyricsScreen(song: String, artist: String, image: UIImage, url: String) {
     let lyricsScreenStoryboard = StoryboardInstanceConstants.lyricsScreen
     let lyricsScreenViewController = lyricsScreenStoryboard.instantiateViewController(withIdentifier: VCNameConstants.lyrics) as! LyricsScreenViewController
     lyricsScreenViewController.artistName = artist
     lyricsScreenViewController.songName = song
+    lyricsScreenViewController.albumImage = image
+    lyricsScreenViewController.trackViewUrl = url
     present(lyricsScreenViewController, animated: true, completion: nil)
   }
   

@@ -15,6 +15,7 @@ struct ResultConstants {
   static let album = "collectionName"
   static let image = "image"
   static let imageUrl = "artworkUrl100"
+  static let trackViewUrl = "trackViewUrl"
   
   
 }
@@ -27,6 +28,7 @@ class ResultModel: ContentItemModel, NSCoding {
   var album: String
   var image: UIImage?
   var imageUrl: URL?
+  var trackViewUrl: String
   
   
   
@@ -49,6 +51,12 @@ class ResultModel: ContentItemModel, NSCoding {
     
     track = trackName
     
+    guard let trackUrl = dictionary[ResultConstants.trackViewUrl] as? String else {
+      return nil
+    }
+    
+    trackViewUrl = trackUrl
+    
     guard let albumName = dictionary[ResultConstants.album] as? String else {
       return nil
     }
@@ -70,6 +78,8 @@ class ResultModel: ContentItemModel, NSCoding {
     aCoder.encode(album, forKey: ResultConstants.album)
     aCoder.encode(imageUrl, forKey: ResultConstants.imageUrl)
     aCoder.encode(image, forKey: ResultConstants.image)
+    aCoder.encode(trackViewUrl, forKey: ResultConstants.trackViewUrl)
+
     
     super.encodeWithEncoder(aCoder)
   }
@@ -104,6 +114,12 @@ class ResultModel: ContentItemModel, NSCoding {
     if let imageRaw = aDecoder.decodeObject(forKey: ResultConstants.image) as? UIImage {
       image = imageRaw
     }
+    
+    guard let trackUrl = aDecoder.decodeObject(forKey: ResultConstants.trackViewUrl) as? String else {
+      return nil
+    }
+    
+    trackViewUrl = trackUrl
 
     
     super.init(coder: aDecoder)

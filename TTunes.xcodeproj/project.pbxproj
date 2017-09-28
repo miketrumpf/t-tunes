@@ -248,6 +248,7 @@
 				TargetAttributes = {
 					27E702501F7B24EC00C2F24B = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 25L98CM939;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -472,6 +473,7 @@
 			baseConfigurationReference = F7FA2267493C513285D18314 /* Pods-TTunes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 25L98CM939;
 				INFOPLIST_FILE = TTunes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = miket.TTunes;
@@ -486,6 +488,7 @@
 			baseConfigurationReference = 0AD34197EE9BBD1118B1E31D /* Pods-TTunes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 25L98CM939;
 				INFOPLIST_FILE = TTunes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = miket.TTunes;

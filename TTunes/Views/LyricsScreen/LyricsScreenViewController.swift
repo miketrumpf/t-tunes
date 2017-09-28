@@ -15,8 +15,16 @@ class LyricsScreenViewController: UIViewController, LyricsViewModelDelegate {
   var albumName = ""
   var songName = ""
   var artistName = ""
+  var trackViewUrl = ""
   var albumImage = UIImage()
   let lyricsViewModel = LyricsViewModel()
+  
+  
+  @IBOutlet weak var image: UIImageView!
+  @IBOutlet weak var artistLabel: UILabel!
+  @IBOutlet weak var trackLabel: UILabel!
+  @IBOutlet weak var albumLabel: UILabel!
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -38,11 +46,26 @@ class LyricsScreenViewController: UIViewController, LyricsViewModelDelegate {
   func lyricsDidLoad() {
     //put this in delegate function once results come in
     lyricLabel.text = lyricsViewModel.lyrics
-//    searchViewModel.getResultsImages()
+    image.image = albumImage
+    artistLabel.text = artistName
+    trackLabel.text = songName
+    albumLabel.text = albumName
   }
   
 
   
+  @IBAction func backButtonPressed(_ sender: Any) {
+    self.dismiss(animated: true, completion: nil)
+
+  }
+  
+  
+  @IBAction func visitSongPage(_ sender: Any) {
+    if let url = URL(string: trackViewUrl) {
+      UIApplication.shared.open(url, options: [:])
+    }
+
+  }
   
  
   
