@@ -42,22 +42,22 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Ksm-7P-0RN">
                                 <rect key="frame" x="47" y="17" width="281.5" height="200"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeP-QZ-oIY">
-                                        <rect key="frame" x="92" y="0.0" width="98" height="28.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search For Music" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeP-QZ-oIY">
+                                        <rect key="frame" x="74" y="0.0" width="134" height="28.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Artist Or Song" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ahi-vc-x8B">
-                                        <rect key="frame" x="0.0" y="58.5" width="281.5" height="43"/>
+                                        <rect key="frame" x="0.0" y="58.5" width="281.5" height="56"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsB-p8-7R7">
-                                        <rect key="frame" x="67.5" y="131.5" width="147" height="68.5"/>
+                                        <rect key="frame" x="40.5" y="144.5" width="201" height="55.5"/>
                                         <color key="backgroundColor" red="0.077701949240631063" green="0.10196897975211544" blue="0.25080078125000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Search">
+                                        <state key="normal" title="Let's Go!">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -69,6 +69,7 @@
                                     <constraint firstAttribute="trailing" secondItem="ahi-vc-x8B" secondAttribute="trailing" id="FVo-43-f8F"/>
                                     <constraint firstItem="wsB-p8-7R7" firstAttribute="width" secondItem="JeP-QZ-oIY" secondAttribute="width" multiplier="1.5" id="GEM-OV-DtQ"/>
                                     <constraint firstItem="ahi-vc-x8B" firstAttribute="leading" secondItem="Ksm-7P-0RN" secondAttribute="leading" id="P3u-Ls-tsI"/>
+                                    <constraint firstItem="wsB-p8-7R7" firstAttribute="height" secondItem="ahi-vc-x8B" secondAttribute="height" id="Wl6-zl-UDD"/>
                                 </constraints>
                             </stackView>
                         </subviews>

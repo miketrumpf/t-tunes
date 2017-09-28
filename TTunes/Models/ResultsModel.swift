@@ -16,10 +16,8 @@ struct ResultConstants {
   static let image = "image"
   static let imageUrl = "artworkUrl100"
   static let trackViewUrl = "trackViewUrl"
-  
-  
 }
-
+//storing all necessary attributes of a result
 class ResultModel: ContentItemModel, NSCoding {
   
   var resultId: Int
@@ -80,7 +78,6 @@ class ResultModel: ContentItemModel, NSCoding {
     aCoder.encode(image, forKey: ResultConstants.image)
     aCoder.encode(trackViewUrl, forKey: ResultConstants.trackViewUrl)
 
-    
     super.encodeWithEncoder(aCoder)
   }
   
@@ -120,7 +117,6 @@ class ResultModel: ContentItemModel, NSCoding {
     }
     
     trackViewUrl = trackUrl
-
     
     super.init(coder: aDecoder)
   }

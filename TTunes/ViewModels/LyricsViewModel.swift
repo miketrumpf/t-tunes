@@ -19,7 +19,7 @@ class LyricsViewModel: NSObject {
   weak var delegate: LyricsViewModelDelegate?
   
   
-  //fetch Results based on search term/s.
+  //get lyrics for pressed table cell using song and artist
   func fetchLyrics(song: String, artist: String) {
     LyricsContentManager.fetchLyrics(song: song, artist: artist){ [weak self] (lyrics) in
       

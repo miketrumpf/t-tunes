@@ -63,7 +63,7 @@ class MainCacheManager : NSObject {
     }
   }
   
-  //removed content item argument, passing directory string instead so that doesn't need second argument for ItemType
+  //clear cache
   static func clearCacheForObject(_ directoryString: String) {
     let fileManager = FileManager.default
     let directory = directoryString
@@ -81,7 +81,7 @@ class MainCacheManager : NSObject {
     NSKeyedArchiver.archiveRootObject(contentItem, toFile: fileName)
   }
   
-  //remove contentItem and itemType arguments and replace with just file path string argument?
+  
   static func fetchCachedContentItemWithCompletion(_ contentItem: ContentItemModel, itemType: ItemCacheType, completion:(ContentItemModel?) -> Void) {
     //unwrap
     let fileName = ("\(contentItem.identifier!)" as NSString)
@@ -91,7 +91,7 @@ class MainCacheManager : NSObject {
     completion(item)
   }
   
-  //access item type directory, add each item in
+  //access item type directory, return array of the item
   static func fetchCachedResults(_ itemType: ItemCacheType) -> [ResultModel] {
     var resultsArray = [ResultModel]()
     let resultDirectory = MainCacheManager.cacheLocationForItemType(itemType)
@@ -111,7 +111,7 @@ class MainCacheManager : NSObject {
   }
   
   
-
+  //clear entire cache of result models
   static func clearAllCachedResults() {
     let cachedResultsArray = MainCacheManager.fetchCachedResults(ItemCacheType.result)
     for result in cachedResultsArray {

@@ -33,7 +33,6 @@ class SearchAPIManager: NSObject {
           return
         }
         
-        
         if let resultDictArray = jsonDict.first?.value as? [[String: AnyObject]], resultDictArray.count > 0 {
 
           comp(resultDictArray)
@@ -49,8 +48,6 @@ class SearchAPIManager: NSObject {
         return
       }
 
-  
-      //    URLCache.shared.removeAllCachedResponses()
       MainCacheManager.clearAllCachedResults()
       Alamofire.request(url, encoding: URLEncoding.default).responseJSON { response in
         guard let imageData = response.data else {
@@ -65,6 +62,5 @@ class SearchAPIManager: NSObject {
       }
     }
 
-  
   
 }

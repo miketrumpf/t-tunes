@@ -20,6 +20,7 @@ class SearchScreenViewController: UIViewController, SearchViewModelDelegate, UIT
   override func viewDidLoad() {
     super.viewDidLoad()
     searchViewModel.delegate = self
+    styleButton()
   }
   
   
@@ -34,7 +35,6 @@ class SearchScreenViewController: UIViewController, SearchViewModelDelegate, UIT
   
   @IBAction func searchButtonPressed(_ sender: Any) {
     //check for empty search box
-    //need a loader
     
     guard let searchParams = self.searchTextField.text, !searchParams.isEmpty else {
       let alertController = UIAlertController(title: "Error", message: "Please enter a search term", preferredStyle: .alert)
@@ -48,19 +48,20 @@ class SearchScreenViewController: UIViewController, SearchViewModelDelegate, UIT
     
 
   }
+  //if we got results hide keyboard and go get images
   func resultsDidLoad() {
-    //put this in delegate function once results come in
     searchViewModel.getResultsImages()
     self.view.endEditing(true)
   }
-
+  
+  //update table
   func imagesDidLoad() {
     setUpCustomTableViewCells()
 
   }
-  
+  //delegate function if problem with their search term
   func throwError() {
-    let alertController = UIAlertController(title: "Error", message: "Something Went wrong.", preferredStyle: .alert)
+    let alertController = UIAlertController(title: "Error", message: "Something Went wrong. Please try a different search term.", preferredStyle: .alert)
     let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
     alertController.addAction(okayAction)
     present(alertController, animated: true, completion: nil)
@@ -77,6 +78,7 @@ class SearchScreenViewController: UIViewController, SearchViewModelDelegate, UIT
     resultsTableView.reloadData()
   }
   
+  //setting up cells
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = resultsTableView.dequeueReusableCell(withIdentifier: XibNameConstants.resultCell) as! ResultsTableViewCell
     cell.delegate = self
@@ -98,18 +100,17 @@ class SearchScreenViewController: UIViewController, SearchViewModelDelegate, UIT
 //    return challengeViewModel.numberOfRows()
     return self.searchViewModel.resultsArray.count
   }
-  
+  //100 is height of images
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 100
   }
   
+  //user selected row
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let selection = self.searchViewModel.resultsArray[indexPath.row]
     navigateToLyricsScreen(song: selection.track, artist: selection.artist, image: selection.image!, url: selection.trackViewUrl)
-
-    
   }
-  
+  //go to lyrics screen, pass data that we have
   func navigateToLyricsScreen(song: String, artist: String, image: UIImage, url: String) {
     let lyricsScreenStoryboard = StoryboardInstanceConstants.lyricsScreen
     let lyricsScreenViewController = lyricsScreenStoryboard.instantiateViewController(withIdentifier: VCNameConstants.lyrics) as! LyricsScreenViewController
@@ -118,6 +119,16 @@ class SearchScreenViewController: UIViewController, SearchViewModelDelegate, UIT
     lyricsScreenViewController.albumImage = image
     lyricsScreenViewController.trackViewUrl = url
     present(lyricsScreenViewController, animated: true, completion: nil)
+  }
+  //button styling
+  func styleButton() {
+    searchButton.backgroundColor = UIColor.lightGray
+    searchButton.layer.shadowColor = UIColor.black.cgColor
+    searchButton.layer.shadowOffset.height = 5
+    searchButton.layer.shadowOpacity = 0.6
+    searchButton.layer.shadowRadius = 10
+    searchButton.layer.cornerRadius = 20
+    searchButton.layer.borderColor = UIColor.gray.cgColor
   }
   
   

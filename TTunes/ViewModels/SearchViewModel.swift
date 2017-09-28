@@ -20,7 +20,7 @@ class SearchViewModel: NSObject {
   weak var delegate: SearchViewModelDelegate?
 
   
-  //fetch Results based on search term. //will need to pass params
+  //fetch Results based on search term.
   func fetchResults(searchParams: String) {
     SearchContentManager.fetchResults(searchParams: searchParams){ [weak self] (resultArray) in
       
@@ -29,16 +29,16 @@ class SearchViewModel: NSObject {
         self?.delegate?.throwError()
         return
       }
-      //unwrap these
       self?.resultsArray = resultArray!
       self?.delegate?.resultsDidLoad()
     }
   }
   
+  //after receiving the results and caching them, make the calls to download the album images
   func getResultsImages() {
     
     SearchContentManager.getResultsImages(resultsArray: resultsArray) {[weak self] (imageArray) in
-      //does nothing
+      //fix
       guard imageArray != nil else {
         return
       }

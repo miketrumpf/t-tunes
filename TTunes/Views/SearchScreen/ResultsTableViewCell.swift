@@ -13,16 +13,15 @@ protocol ResultsTableViewCellDelegate: class {
 
 class ResultsTableViewCell: UITableViewCell {
 
-  
+  //outlets
   @IBOutlet weak var albumImage: UIImageView!
-  
   @IBOutlet weak var artistNameLabel: UILabel!
   @IBOutlet weak var albumNameLabel: UILabel!
   @IBOutlet weak var trackNameLabel: UILabel!
   
   
   weak var delegate: ResultsTableViewCellDelegate?
-    weak var currentResult: ResultModel?
+  weak var currentResult: ResultModel?
   
   
 }

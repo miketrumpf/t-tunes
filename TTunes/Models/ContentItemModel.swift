@@ -12,7 +12,7 @@ struct ContentItemConstants {
   static let cacheExpirationDate = "cacheExpirationDate"
 }
 
-//class that user model, quiz model, and game model will inherit from
+//class that resultmodel will inherit from. not going to cache lyrics anymore
 //this will allow a single cache manager that caches files based on unique identifier in one place, easily searchable when checking/retrieving cached files
 class ContentItemModel : NSObject {
   

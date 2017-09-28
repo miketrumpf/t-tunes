@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+//view controller constants
 struct VCNameConstants {
   static let launch = "Launch"
   static let search = "searchScreenVC"
@@ -27,7 +27,6 @@ struct NibInstanceConstants {
 }
 
 struct XibNameConstants {
-  //  static let favoriteCell = "FavoritesTableViewCell"
   static let resultCell = "ResultsTableViewCell"
 
 }
