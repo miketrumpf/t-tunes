@@ -9,29 +9,29 @@ import Foundation
 import UIKit
 
 struct ResultConstants {
-  static let resultId = "id"
-  static let artist = "artist"
-  static let track = "track"
-  static let album = "album"
-//  static let image = "image"
-//  static let imageUrl = "imageUrl"
+  static let resultId = "trackId"
+  static let artist = "artistName"
+  static let track = "trackName"
+  static let album = "collectionName"
+  static let image = "image"
+  static let imageUrl = "artworkUrl100"
   
   
 }
 
 class ResultModel: ContentItemModel, NSCoding {
   
-  var resultId: String
+  var resultId: Int
   var artist: String
   var track: String
   var album: String
-//  var image: UIImage?
-//  var imageUrl: URL?
+  var image: UIImage?
+  var imageUrl: URL?
   
   
   
   override init?(dictionary: [String: AnyObject]) {
-    guard let result = dictionary[ResultConstants.resultId] as? String else {
+    guard let result = dictionary[ResultConstants.resultId] as? Int else {
       return nil
     }
     resultId = result
@@ -52,8 +52,13 @@ class ResultModel: ContentItemModel, NSCoding {
     guard let albumName = dictionary[ResultConstants.album] as? String else {
       return nil
     }
-    
+
     album = albumName
+    
+    if let imageString = dictionary[ResultConstants.imageUrl] as? String {
+      self.imageUrl = URL(string: imageString)
+    }
+    
     super.init(dictionary: dictionary)
   }
   
@@ -63,13 +68,14 @@ class ResultModel: ContentItemModel, NSCoding {
     aCoder.encode(artist, forKey: ResultConstants.artist)
     aCoder.encode(track, forKey: ResultConstants.track)
     aCoder.encode(album, forKey: ResultConstants.album)
-
+    aCoder.encode(imageUrl, forKey: ResultConstants.imageUrl)
+    aCoder.encode(image, forKey: ResultConstants.image)
     
     super.encodeWithEncoder(aCoder)
   }
   
   required init?(coder aDecoder: NSCoder) {
-    guard let result = aDecoder.decodeObject(forKey: ResultConstants.resultId) as? String else {
+    guard let result = aDecoder.decodeObject(forKey: ResultConstants.resultId) as? Int else {
       return nil
     }
     resultId = result
@@ -91,6 +97,13 @@ class ResultModel: ContentItemModel, NSCoding {
     
     album = albumName
 
+    if let imageURL = aDecoder.decodeObject(forKey: ResultConstants.imageUrl) as? URL {
+      imageUrl = imageURL
+    }
+    
+    if let imageRaw = aDecoder.decodeObject(forKey: ResultConstants.image) as? UIImage {
+      image = imageRaw
+    }
 
     
     super.init(coder: aDecoder)

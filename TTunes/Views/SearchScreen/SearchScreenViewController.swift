@@ -13,17 +13,13 @@ class SearchScreenViewController: UIViewController, SearchViewModelDelegate, UIT
 
   @IBOutlet weak var searchTextField: UITextField!
   @IBOutlet weak var searchButton: UIButton!
-
   @IBOutlet weak var resultsTableView: UITableView!
   
-  //  static func storyboardInstance() -> PostsViewController? {
-//    let storyboard = UIStoryboard(name:
-//      "PostsViewController", bundle: nil)
-//    return storyboard.instantiateViewController(withIdentifier: VCNameConstants.posts) as? PostsViewController
-//  }
+  let searchViewModel = SearchViewModel()
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    searchViewModel.delegate = self
   }
   
   
@@ -40,11 +36,26 @@ class SearchScreenViewController: UIViewController, SearchViewModelDelegate, UIT
     //check for empty search box
     //need a loader
     
+    if let searchParams = self.searchTextField.text {
+      //if params
+      searchViewModel.fetchResults(searchParams: searchParams)
+    } else {
+      //error message?
+      print("empty params")
+    }
     
-    //put this in delegate function once results come in
-    setUpCustomTableViewCells()
+
   }
-  
+  func resultsDidLoad() {
+    //put this in delegate function once results come in
+    searchViewModel.getResultsImages()
+  }
+
+  func imagesDidLoad() {
+    setUpCustomTableViewCells()
+
+  }
+
   
   //table view functions
   func setUpCustomTableViewCells() {
@@ -59,11 +70,15 @@ class SearchScreenViewController: UIViewController, SearchViewModelDelegate, UIT
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = resultsTableView.dequeueReusableCell(withIdentifier: XibNameConstants.resultCell) as! ResultsTableViewCell
     cell.delegate = self
-    
+    let currentResult = self.searchViewModel.resultsArray[indexPath.row]
+    cell.artistNameLabel.text = "Artist: \(currentResult.artist)"
+    cell.trackNameLabel.text = "Track: \(currentResult.track)"
+    cell.albumNameLabel.text = "Album: \(currentResult.album)"
+    if currentResult.image != nil {
+      cell.albumImage.image = currentResult.image!
+    }
+//    cell.albumImage.image = currentResult.image
     //each cell will pull from array of results
-//    changeCellBackgroundColor(cell)
-//    setUpCellButton(cell)
-//    toggleCellViewSettings(cell)
 //    DispatchQueue.main.async {
 //      //cell.userProfileImageview.layoutIfNeeded()
 //      cell.userProfileImageview.clipsToBounds = true
@@ -88,7 +103,7 @@ class SearchScreenViewController: UIViewController, SearchViewModelDelegate, UIT
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //    return challengeViewModel.numberOfRows()
-    return 5
+    return self.searchViewModel.resultsArray.count
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

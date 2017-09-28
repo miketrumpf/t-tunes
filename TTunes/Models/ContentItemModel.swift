@@ -7,7 +7,7 @@
 
 import Foundation
 struct ContentItemConstants {
-  static let identifier = "id"
+  static let identifier = "trackId"
   static let cacheCreationDate = "cacheCreationDate"
   static let cacheExpirationDate = "cacheExpirationDate"
 }
@@ -16,14 +16,14 @@ struct ContentItemConstants {
 //this will allow a single cache manager that caches files based on unique identifier in one place, easily searchable when checking/retrieving cached files
 class ContentItemModel : NSObject {
   
-  var identifier: String!
+  var identifier: Int!
   var cacheCreationDate: Date!
   var cacheExpirationDate: Date!
   
   
   init?(dictionary: [String: AnyObject]) {
     
-    guard let id = dictionary[ContentItemConstants.identifier] as? String else {
+    guard let id = dictionary[ContentItemConstants.identifier] as? Int else {
       return nil
     }
     
@@ -43,7 +43,7 @@ class ContentItemModel : NSObject {
   }
   
   required init?(coder aDecoder: NSCoder) {
-    guard let id = aDecoder.decodeObject(forKey: ContentItemConstants.identifier) as? String else {
+    guard let id = aDecoder.decodeObject(forKey: ContentItemConstants.identifier) as? Int else {
       return nil
     }
     identifier = id
